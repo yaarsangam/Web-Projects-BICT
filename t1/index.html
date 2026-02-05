@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Profile</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        p {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        .section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Inline CSS for heading color -->
+            <h1 style="color: #2c3e50; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">Alex Johnson</h1>
+        </header>
+        
+        <main>
+            <div class="profile-section">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" 
+                         alt="Alex Johnson's photo" class="profile-photo">
+                </div>
+                
+                <div class="info-container">
+                    <div class="section">
+                        <h2 class="section-title">About Me</h2>
+                        <p>Hello! I'm Alex, a passionate web developer with a love for creating clean, functional websites. I enjoy solving problems and learning new technologies. In my free time, I like to explore nature, read tech blogs, and experiment with new coding frameworks.</p>
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="section">
+                            <h2 class="section-title">My Hobbies</h2>
+                            <ol>
+                                <li>Web Development Projects</li>
+                                <li>Hiking and Nature Photography</li>
+                                <li>Reading Tech Blogs & Books</li>
+                                <li>Playing Guitar</li>
+                                <li>Coffee Brewing</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="section">
+                            <h2 class="section-title">My Skills</h2>
+                            <ul>
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript & React</li>
+                                <li>Responsive Web Design</li>
+                                <li>UI/UX Principles</li>
+                                <li>Version Control (Git)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Favorite Website</h2>
+                        <p>Check out my favorite learning resource: 
+                            <a href="https://developer.mozilla.org" target="_blank" class="favorite-link">MDN Web Docs</a>
+                        </p>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Education</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Education Level</th>
+                                    <th>Institution Name</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bachelor's Degree</td>
+                                    <td>University of Technology</td>
+                                    <td>2018-2022</td>
+                                </tr>
+                                <tr>
+                                    <td>Web Development Bootcamp</td>
+                                    <td>Code Academy</td>
+                                    <td>2022</td>
+                                </tr>
+                                <tr>
+                                    <td>High School Diploma</td>
+                                    <td>Central High School</td>
+                                    <td>2014-2018</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Current Date & Time</h2>
+                        <div id="datetime" class="datetime-display">
+                            <!-- JavaScript will populate this -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Created with HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Alert when page loads
+        window.onload = function() {
+            alert("Welcome to my personal profile page!");
+            
+            // Update date and time every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+        };
+        
+        function updateDateTime() {
+            const now = new Date();
+            const datetimeElement = document.getElementById('datetime');
+            datetimeElement.innerHTML = now.toLocaleString();
+        }
+    </script>
+</body>
+</html>
