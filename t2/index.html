@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="layout.css">
+    <!-- Internal CSS -->
+    <style>
+        body { font-family: Arial; margin: 0; }
+        .container { width: 90%; max-width: 400px; margin: auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        input, select { width: 100%; padding: 8px; margin: 5px 0; }
+        .error { color: red; font-size: 12px; display: none; }
+        button { background: #28a745; color: white; padding: 10px; border: none; width: 100%; }
+        .radio-group { display: flex; gap: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="form">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Full Name">
+                <div class="error" id="e1">Enter name</div>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email">
+                <div class="error" id="e2">Enter valid email</div>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" id="pass" placeholder="Password (6+ chars)">
+                <div class="error" id="e3">Need 6+ characters</div>
+            </div>
+            
+            <div class="form-group">
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                </div>
+                <div class="error" id="e4">Select gender</div>
+            </div>
+            
+            <div class="form-group">
+                <select id="course">
+                    <option value="">Select Course</option>
+                    <option>Web Development</option>
+                    <option>Data Science</option>
+                    <option>Mobile Dev</option>
+                </select>
+                <div class="error" id="e5">Select course</div>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Short JavaScript -->
+    <script>
+        const f = document.getElementById('form');
+        
+        f.onsubmit = function(e) {
+            e.preventDefault();
+            let ok = true;
+            
+            // Validate
+            if(!document.getElementById('name').value) { 
+                document.getElementById('e1').style.display = 'block'; 
+                ok = false; 
+            }
+            
+            if(!document.getElementById('email').value.includes('@')) { 
+                document.getElementById('e2').style.display = 'block'; 
+                ok = false; 
+            }
+            
+            if(document.getElementById('pass').value.length < 6) { 
+                document.getElementById('e3').style.display = 'block'; 
+                ok = false; 
+            }
+            
+            if(!document.querySelector('input[name="gender"]:checked')) { 
+                document.getElementById('e4').style.display = 'block'; 
+                ok = false; 
+            }
+            
+            if(!document.getElementById('course').value) { 
+                document.getElementById('e5').style.display = 'block'; 
+                ok = false; 
+            }
+            
+            if(ok) {
+                alert('Registration Successful!');
+            }
+        };
+        
+        // Hide errors when typing
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('input', () => {
+                el.nextElementSibling.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
