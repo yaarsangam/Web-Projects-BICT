@@ -110,12 +110,7 @@
                         </table>
                     </div>
                     
-                    <div class="section">
-                        <h2 class="section-title">Current Date & Time</h2>
-                        <div id="datetime" class="datetime-display">
-                            <!-- JavaScript will populate this -->
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </main>
@@ -127,20 +122,12 @@
 
     <!-- JavaScript -->
     <script>
-        // Alert when page loads
-        window.onload = function() {
-            alert("Welcome to my personal profile page!");
-            
-            // Update date and time every second
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-        };
-        
-        function updateDateTime() {
-            const now = new Date();
-            const datetimeElement = document.getElementById('datetime');
-            datetimeElement.innerHTML = now.toLocaleString();
-        }
+       window.onload = function() {
+    alert("Date: " + new Date().toDateString());
+    setInterval(() => {
+        document.getElementById('datetime').textContent = new Date();
+    }, 1000);
+};
     </script>
 </body>
 </html>
